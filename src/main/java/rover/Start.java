@@ -48,19 +48,26 @@ public class Start {
 	}
 
 	public static void zeichneMap() {
-		// Set<int[]> keySet = mars.keySet();
-		// for (int[] e : keySet) {
-		// if (e[0] == 39 && e[1] == 10)
-		// System.err.println(mars.get(e) + " " + e.hashCode());
-		// }
+		
 		String [] Zeichen1 = {"#","n","s","e","w"};
 		String [] Zeichen2 = {"#","^","V",">","<"};
-		
-		
 		int[] Koordinaten = maxBreiteUndHöhe(mars.keySet());
+		
+		zeichneKreuze(Zeichen1, Zeichen2, Koordinaten);
+		
+		
+		for (int i = 0; i < Koordinaten[0]; i++) {
+			System.out.print("=");
+		}
+		System.out.println();
+	}
+
+	
+	public static void zeichneKreuze(String[] Zeichen1, String[] Zeichen2, int[]Koordinaten) {
+		
 		for (int j = 0; j < Koordinaten[1]; j++) {
 			for (int i = 0; i < Koordinaten[0]; i++) {
-				// System.out.println(i + "," + j + ": " + get(mars, new int[] { i, j }));
+				
 				if (getZeichen(mars, new int[] { i, j }) == null) {
 					System.out.print(" ");
 					continue;
@@ -76,12 +83,14 @@ public class Start {
 			
 			System.out.println();
 		}
-		for (int i = 0; i < Koordinaten[0]; i++) {
-			System.out.print("=");
-		}
-		System.out.println();
+		
+		
 	}
-
+	
+	
+	
+	
+	
 	public static void main(String[] args) {
 
 		//if (args.length > 1) {
