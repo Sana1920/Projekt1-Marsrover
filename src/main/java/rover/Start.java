@@ -98,11 +98,11 @@ public class Start {
 	
 	public static void main(String[] args) {
 
-		//if (args.length > 1) {
-		//	long seed = Long.parseLong(args[1]);
-		//	random.setSeed(seed);
-			// System.out.println("Seed: " + seed);
-		//}
+		if (args.length > 1) {
+			long seed = Long.parseLong(args[1]);
+			random.setSeed(seed);
+			 System.out.println("Seed: " + seed);
+		}
 		
 		befülleDenMars();
 		String eingabe = args[0];
@@ -135,6 +135,7 @@ public class Start {
 
 	public static void bewegeDenRoverf() {
 		int[] Rover = findeRover();
+		
 		if (getZeichen(mars, Rover).equals("n"))
 			Rover[1]--;
 		else if (getZeichen(mars, Rover).equals("s"))
@@ -149,6 +150,7 @@ public class Start {
 	
 	public static void bewegeDenRoverb() {
 		int[] Rover = findeRover();
+		
 		if (getZeichen(mars, Rover).equals("s"))
 			Rover[1]--;
 		else if (getZeichen(mars, Rover).equals("n"))
@@ -163,28 +165,34 @@ public class Start {
 	
 	public static void bewegeDenRoverl() {
 		int[] Rover = findeRover();
-		if (getZeichen(mars, Rover).equals("n"))
-			mars.put(Rover, "w");
-		else if (getZeichen(mars, Rover).equals("s"))
-			mars.put(Rover, "e");
-		else if (getZeichen(mars, Rover).equals("e"))
-			mars.put(Rover, "n");
-		else if (getZeichen(mars, Rover).equals("w"))
-			mars.put(Rover, "s");
-	
+		String [] Zeichen1 = {"n","s","e","w"};
+		String [] Zeichen2 = {"w","e","n","s"};
+		
+		for(int k = 0; k <Zeichen1.length; k++) {
+			if (getZeichen(mars, Rover).equals(Zeichen1[k])) {
+				mars.put(Rover, Zeichen2[k]);
+		        k = Zeichen1.length;
+			}
+			
+		}	
+		
+		
 	
 	}
 
 	public static void bewegeDenRoverr() {
 		int[] Rover = findeRover();
-		if (getZeichen(mars, Rover).equals("w"))
-			mars.put(Rover, "n");
-		else if (getZeichen(mars, Rover).equals("e"))
-			mars.put(Rover, "s");
-		else if (getZeichen(mars, Rover).equals("n"))
-			mars.put(Rover, "e");
-		else if (getZeichen(mars, Rover).equals("s"))
-			mars.put(Rover, "w");
+		
+		String [] Zeichen2 = {"n","s","e","w"};
+		String [] Zeichen1 = {"w","e","n","s"};
+		
+		for(int k = 0; k <Zeichen1.length; k++) {
+			if (getZeichen(mars, Rover).equals(Zeichen1[k])) {
+				mars.put(Rover, Zeichen2[k]);
+		        k = Zeichen1.length;
+			}
+			
+		}	
 	
 	
 	}
