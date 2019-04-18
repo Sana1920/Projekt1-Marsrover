@@ -1,0 +1,5 @@
+.classpath
+.gradle/
+.project
+*.class
+README.adoc
