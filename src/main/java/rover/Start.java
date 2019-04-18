@@ -53,28 +53,27 @@ public class Start {
 		// if (e[0] == 39 && e[1] == 10)
 		// System.err.println(mars.get(e) + " " + e.hashCode());
 		// }
-
+		String [] Zeichen1 = {"#","n","s","e","w"};
+		String [] Zeichen2 = {"#","^","V",">","<"};
+		
+		
 		int[] Koordinaten = maxBreiteUndHöhe(mars.keySet());
 		for (int j = 0; j < Koordinaten[1]; j++) {
 			for (int i = 0; i < Koordinaten[0]; i++) {
 				// System.out.println(i + "," + j + ": " + get(mars, new int[] { i, j }));
-
 				if (getZeichen(mars, new int[] { i, j }) == null) {
 					System.out.print(" ");
 					continue;
 				}
-				if (getZeichen(mars, new int[] { i, j }).equals("#"))
-					System.out.print("#");
-				else if (getZeichen(mars, new int[] { i, j }).equals("n"))
-					System.out.print("^");
-				else if (getZeichen(mars, new int[] { i, j }).equals("s"))
-					System.out.print("V");
-				else if (getZeichen(mars, new int[] { i, j }).equals("e"))
-					System.out.print(">");
-				if (getZeichen(mars, new int[] { i, j }).equals("w"))
-					System.out.print("<");
+				
+				for(int k = 0; k <Zeichen1.length; k++) {
+					if (getZeichen(mars, new int[] { i, j }).equals(Zeichen1[k]))
+						System.out.print(Zeichen2[k]);
+				}
+				
 
 			}
+			
 			System.out.println();
 		}
 		for (int i = 0; i < Koordinaten[0]; i++) {
