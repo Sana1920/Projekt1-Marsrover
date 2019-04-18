@@ -115,45 +115,45 @@ public class Start {
 
 	public static void bewegeDenRover(char bewegung) {
 		if (bewegung == 'f') {
-			int[] p = findeRover();
-			if (getZeichen(mars, p).equals("n"))
-				p[1]--;
-			else if (getZeichen(mars, p).equals("s"))
-				p[1]++;
-			else if (getZeichen(mars, p).equals("e"))
-				p[0]++;
-			else if (getZeichen(mars, p).equals("w"))
-				p[0]--;
+			int[] Rover = findeRover();
+			if (getZeichen(mars, Rover).equals("n"))
+				Rover[1]--;
+			else if (getZeichen(mars, Rover).equals("s"))
+				Rover[1]++;
+			else if (getZeichen(mars, Rover).equals("e"))
+				Rover[0]++;
+			else if (getZeichen(mars, Rover).equals("w"))
+				Rover[0]--;
 		} else if (bewegung == 'b') {
-			int[] p = findeRover();
-			if (getZeichen(mars, p).equals("s"))
-				p[1]--;
-			else if (getZeichen(mars, p).equals("n"))
-				p[1]++;
-			else if (getZeichen(mars, p).equals("w"))
-				p[0]++;
-			else if (getZeichen(mars, p).equals("e"))
-				p[0]--;
+			int[] Rover = findeRover();
+			if (getZeichen(mars, Rover).equals("s"))
+				Rover[1]--;
+			else if (getZeichen(mars, Rover).equals("n"))
+				Rover[1]++;
+			else if (getZeichen(mars, Rover).equals("w"))
+				Rover[0]++;
+			else if (getZeichen(mars, Rover).equals("e"))
+				Rover[0]--;
 		} else if (bewegung == 'l') {
-			int[] p = findeRover();
-			if (getZeichen(mars, p).equals("n"))
-				mars.put(p, "w");
-			else if (getZeichen(mars, p).equals("s"))
-				mars.put(p, "e");
-			else if (getZeichen(mars, p).equals("e"))
-				mars.put(p, "n");
-			else if (getZeichen(mars, p).equals("w"))
-				mars.put(p, "s");
+			int[] Rover = findeRover();
+			if (getZeichen(mars, Rover).equals("n"))
+				mars.put(Rover, "w");
+			else if (getZeichen(mars, Rover).equals("s"))
+				mars.put(Rover, "e");
+			else if (getZeichen(mars, Rover).equals("e"))
+				mars.put(Rover, "n");
+			else if (getZeichen(mars, Rover).equals("w"))
+				mars.put(Rover, "s");
 		} else if (bewegung == 'r') {
-			int[] p = findeRover();
-			if (getZeichen(mars, p).equals("w"))
-				mars.put(p, "n");
-			else if (getZeichen(mars, p).equals("e"))
-				mars.put(p, "s");
-			else if (getZeichen(mars, p).equals("n"))
-				mars.put(p, "e");
-			else if (getZeichen(mars, p).equals("s"))
-				mars.put(p, "w");
+			int[] Rover = findeRover();
+			if (getZeichen(mars, Rover).equals("w"))
+				mars.put(Rover, "n");
+			else if (getZeichen(mars, Rover).equals("e"))
+				mars.put(Rover, "s");
+			else if (getZeichen(mars, Rover).equals("n"))
+				mars.put(Rover, "e");
+			else if (getZeichen(mars, Rover).equals("s"))
+				mars.put(Rover, "w");
 		}
 
 	}
