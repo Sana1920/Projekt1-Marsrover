@@ -101,7 +101,7 @@ public class Start {
 		if (args.length > 1) {
 			long seed = Long.parseLong(args[1]);
 			random.setSeed(seed);
-			 System.out.println("Seed: " + seed);
+			 //System.out.println("Seed: " + seed);
 		}
 		
 		befülleDenMars();
@@ -113,6 +113,23 @@ public class Start {
 		}
 	}
 
+	
+	public static void untersucheDieUmgebung(int [] Rover, int [] Speicher) {
+		  
+		if(getZeichen(mars, Rover).equals("#")) {
+			   
+			   Rover[0] = Speicher[0];
+			   Rover[1] = Speicher[1];
+			   
+		   }
+		
+		
+		
+	}
+	
+	
+	
+	
 	public static void bewegeDenRover(char bewegung) {
 		String  Zeichen3 = "fblr";
 		
@@ -135,31 +152,53 @@ public class Start {
 
 	public static void bewegeDenRoverf() {
 		int[] Rover = findeRover();
+		int [] Speicher = new int [2];
+		Speicher [0] = Rover[0];
+		Speicher [1] = Rover[1];
 		
-		if (getZeichen(mars, Rover).equals("n"))
+		if (getZeichen(mars, Rover).equals("n")) {
 			Rover[1]--;
-		else if (getZeichen(mars, Rover).equals("s"))
+			untersucheDieUmgebung(Rover,Speicher);
+		
+		}
+				
+		else if (getZeichen(mars, Rover).equals("s")) {
 			Rover[1]++;
-		else if (getZeichen(mars, Rover).equals("e"))
+			untersucheDieUmgebung(Rover,Speicher);
+		}
+		else if (getZeichen(mars, Rover).equals("e")) {
 			Rover[0]++;
-		else if (getZeichen(mars, Rover).equals("w"))
+			untersucheDieUmgebung(Rover,Speicher);
+		}	
+		else if (getZeichen(mars, Rover).equals("w")) {
 			Rover[0]--;
-		
-		
+			untersucheDieUmgebung(Rover,Speicher);
+		}
 	}
 	
 	public static void bewegeDenRoverb() {
 		int[] Rover = findeRover();
+		int[] Speicher = new int[2];
+		Speicher [0] = Rover[0];
+		Speicher [1] = Rover[1];
 		
-		if (getZeichen(mars, Rover).equals("s"))
+		
+		if (getZeichen(mars, Rover).equals("s")) {
 			Rover[1]--;
-		else if (getZeichen(mars, Rover).equals("n"))
+			untersucheDieUmgebung(Rover, Speicher);
+		}
+		else if (getZeichen(mars, Rover).equals("n")) {
 			Rover[1]++;
-		else if (getZeichen(mars, Rover).equals("w"))
+			untersucheDieUmgebung(Rover, Speicher);
+		}
+		else if (getZeichen(mars, Rover).equals("w")) {
 			Rover[0]++;
-		else if (getZeichen(mars, Rover).equals("e"))
+			untersucheDieUmgebung(Rover, Speicher);
+		}	
+		else if (getZeichen(mars, Rover).equals("e")) {
 			Rover[0]--;
-		
+			untersucheDieUmgebung(Rover, Speicher);
+		}
 		
 	}
 	
@@ -211,5 +250,11 @@ public class Start {
 		}
 		throw new IllegalStateException("Rover missing in action");
 	}
+
+
+	
+
+
+
 
 }
