@@ -114,50 +114,87 @@ public class Start {
 	}
 
 	public static void bewegeDenRover(char bewegung) {
-		if (bewegung == 'f') {
-			int[] Rover = findeRover();
-			if (getZeichen(mars, Rover).equals("n"))
-				Rover[1]--;
-			else if (getZeichen(mars, Rover).equals("s"))
-				Rover[1]++;
-			else if (getZeichen(mars, Rover).equals("e"))
-				Rover[0]++;
-			else if (getZeichen(mars, Rover).equals("w"))
-				Rover[0]--;
-		} else if (bewegung == 'b') {
-			int[] Rover = findeRover();
-			if (getZeichen(mars, Rover).equals("s"))
-				Rover[1]--;
-			else if (getZeichen(mars, Rover).equals("n"))
-				Rover[1]++;
-			else if (getZeichen(mars, Rover).equals("w"))
-				Rover[0]++;
-			else if (getZeichen(mars, Rover).equals("e"))
-				Rover[0]--;
-		} else if (bewegung == 'l') {
-			int[] Rover = findeRover();
-			if (getZeichen(mars, Rover).equals("n"))
-				mars.put(Rover, "w");
-			else if (getZeichen(mars, Rover).equals("s"))
-				mars.put(Rover, "e");
-			else if (getZeichen(mars, Rover).equals("e"))
-				mars.put(Rover, "n");
-			else if (getZeichen(mars, Rover).equals("w"))
-				mars.put(Rover, "s");
-		} else if (bewegung == 'r') {
-			int[] Rover = findeRover();
-			if (getZeichen(mars, Rover).equals("w"))
-				mars.put(Rover, "n");
-			else if (getZeichen(mars, Rover).equals("e"))
-				mars.put(Rover, "s");
-			else if (getZeichen(mars, Rover).equals("n"))
-				mars.put(Rover, "e");
-			else if (getZeichen(mars, Rover).equals("s"))
-				mars.put(Rover, "w");
+		String  Zeichen3 = "fblr";
+		
+		for(int l = 0; l < Zeichen3.length(); l++) {
+			char  lauf = Zeichen3.charAt(l);
+			
+			if (lauf == bewegung)  {
+				if(l==0) bewegeDenRoverf();
+				else if(l==1)bewegeDenRoverb();
+				else if(l==2)bewegeDenRoverl();
+				else if(l==3)bewegeDenRoverr();
+				
+			}
+			
+			
 		}
-
+				
+		
 	}
 
+	public static void bewegeDenRoverf() {
+		int[] Rover = findeRover();
+		if (getZeichen(mars, Rover).equals("n"))
+			Rover[1]--;
+		else if (getZeichen(mars, Rover).equals("s"))
+			Rover[1]++;
+		else if (getZeichen(mars, Rover).equals("e"))
+			Rover[0]++;
+		else if (getZeichen(mars, Rover).equals("w"))
+			Rover[0]--;
+		
+		
+	}
+	
+	public static void bewegeDenRoverb() {
+		int[] Rover = findeRover();
+		if (getZeichen(mars, Rover).equals("s"))
+			Rover[1]--;
+		else if (getZeichen(mars, Rover).equals("n"))
+			Rover[1]++;
+		else if (getZeichen(mars, Rover).equals("w"))
+			Rover[0]++;
+		else if (getZeichen(mars, Rover).equals("e"))
+			Rover[0]--;
+		
+		
+	}
+	
+	public static void bewegeDenRoverl() {
+		int[] Rover = findeRover();
+		if (getZeichen(mars, Rover).equals("n"))
+			mars.put(Rover, "w");
+		else if (getZeichen(mars, Rover).equals("s"))
+			mars.put(Rover, "e");
+		else if (getZeichen(mars, Rover).equals("e"))
+			mars.put(Rover, "n");
+		else if (getZeichen(mars, Rover).equals("w"))
+			mars.put(Rover, "s");
+	
+	
+	}
+
+	public static void bewegeDenRoverr() {
+		int[] Rover = findeRover();
+		if (getZeichen(mars, Rover).equals("w"))
+			mars.put(Rover, "n");
+		else if (getZeichen(mars, Rover).equals("e"))
+			mars.put(Rover, "s");
+		else if (getZeichen(mars, Rover).equals("n"))
+			mars.put(Rover, "e");
+		else if (getZeichen(mars, Rover).equals("s"))
+			mars.put(Rover, "w");
+	
+	
+	}
+
+	
+	
+	
+	
+	
+	
 	private static int[] findeRover() {
 		Set<Entry<int[], String>> entrySet = mars.entrySet();
 		for (Entry<int[], String> entry : entrySet) {
