@@ -54,12 +54,9 @@ public class Start {
 		int[] Koordinaten = maxBreiteUndHöhe(mars.keySet());
 		
 		zeichneKreuze(Zeichen1, Zeichen2, Koordinaten);
+		zeichneGrenze(Koordinaten);
 		
 		
-		for (int i = 0; i < Koordinaten[0]; i++) {
-			System.out.print("=");
-		}
-		System.out.println();
 	}
 
 	
@@ -84,6 +81,14 @@ public class Start {
 			System.out.println();
 		}
 		
+		
+	}
+	
+	public static void zeichneGrenze(int[]Koordinaten) {
+		for (int i = 0; i < Koordinaten[0]; i++) {
+			System.out.print("=");
+		}
+		System.out.println();
 		
 	}
 	
