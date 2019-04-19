@@ -120,7 +120,7 @@ public class Start {
 			   
 			   Rover[0] = Speicher[0];
 			   Rover[1] = Speicher[1];
-			   
+			   //mars.put(Rover, getZeichen(mars,Rover));
 		   }
 		
 		
@@ -132,15 +132,15 @@ public class Start {
 	
 	public static void bewegeDenRover(char bewegung) {
 		String  Zeichen3 = "fblr";
-		
+		int [] Rover = findeRover();
 		for(int l = 0; l < Zeichen3.length(); l++) {
 			char  lauf = Zeichen3.charAt(l);
 			
 			if (lauf == bewegung)  {
-				if(l==0) bewegeDenRoverf();
-				else if(l==1)bewegeDenRoverb();
-				else if(l==2)bewegeDenRoverl();
-				else if(l==3)bewegeDenRoverr();
+				if(l==0) bewegeDenRoverf(Rover);
+				else if(l==1)bewegeDenRoverb(Rover);
+				else if(l==2)bewegeDenRoverl(Rover);
+				else if(l==3)bewegeDenRoverr(Rover);
 				
 			}
 			
@@ -150,8 +150,7 @@ public class Start {
 		
 	}
 
-	public static void bewegeDenRoverf() {
-		int[] Rover = findeRover();
+	public static void bewegeDenRoverf(int [] Rover) {
 		int [] Speicher = new int [2];
 		Speicher [0] = Rover[0];
 		Speicher [1] = Rover[1];
@@ -174,10 +173,10 @@ public class Start {
 			Rover[0]--;
 			untersucheDieUmgebung(Rover,Speicher);
 		}
+		//mars.put(Rover, getZeichen(mars,Rover));
 	}
 	
-	public static void bewegeDenRoverb() {
-		int[] Rover = findeRover();
+	public static void bewegeDenRoverb(int [] Rover) {
 		int[] Speicher = new int[2];
 		Speicher [0] = Rover[0];
 		Speicher [1] = Rover[1];
@@ -199,11 +198,10 @@ public class Start {
 			Rover[0]--;
 			untersucheDieUmgebung(Rover, Speicher);
 		}
-		
+		//mars.put(Rover, getZeichen(mars,Rover));
 	}
 	
-	public static void bewegeDenRoverl() {
-		int[] Rover = findeRover();
+	public static void bewegeDenRoverl(int [] Rover) {
 		String [] Zeichen1 = {"n","s","e","w"};
 		String [] Zeichen2 = {"w","e","n","s"};
 		
@@ -219,9 +217,7 @@ public class Start {
 	
 	}
 
-	public static void bewegeDenRoverr() {
-		int[] Rover = findeRover();
-		
+	public static void bewegeDenRoverr(int [] Rover) {
 		String [] Zeichen2 = {"n","s","e","w"};
 		String [] Zeichen1 = {"w","e","n","s"};
 		
